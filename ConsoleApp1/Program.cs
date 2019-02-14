@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp1.model;
+using Newtonsoft.Json;
+
 namespace ConsoleApp1
 {
     class Program
@@ -13,8 +15,9 @@ namespace ConsoleApp1
 
 
             ServiceUser serviceUser = new ServiceUser("https://randomuser.me/api?results=1");
-            Console.WriteLine(serviceUser.GetJsonString()); 
-
+         /* Console.WriteLine(serviceUser.GetJsonString())*/;
+            string json = serviceUser.GetJsonString();
+            var users = JsonConvert.DeserializeObject<Users>(json);
 
         }
 
